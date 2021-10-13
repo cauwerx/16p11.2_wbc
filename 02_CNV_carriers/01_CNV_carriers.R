@@ -94,3 +94,5 @@ fwrite(cnv_carriers_HC, "/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Gi
 
 # CNV carriers coordinates
 fwrite(cnvs_16p11, "/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/02_CNV_carriers/data/final/16p11.2_CNV_coordinates.txt", row.names = F, col.names = T, quote = F, sep = "\t")
+fwrite(cnvs_16p11_HC, "/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/02_CNV_carriers/data/final/16p11.2_CNV_coordinates_HC.txt", row.names = F, col.names = T, quote = F, sep = "\t")
+       

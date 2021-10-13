@@ -13,7 +13,7 @@ library(matrixStats)
 ### STEP 1: Load Main Data ######################
 
 # This corresponds to a .csv file with two columns: field ID and short name for the corresponding phenotype
-# Phenotypes: monocyte count, lymphocyte count, WBC count, eosinophil count, neutrophil count
+# Phenotypes: monocyte count, lymphocyte count, WBC count, eosinophil count, neutrophil count, basophil count
 pheno_list <- as.data.frame(fread("/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/04_phenotypes/data/raw/WBC_traits.csv", header = T))
 
 

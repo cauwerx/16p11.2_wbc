@@ -57,8 +57,10 @@ cnv_carriers <- all
 cnv_carriers[cnv_carriers$eid %in% males$eid, "sex"] <- "M"
 cnv_carriers[cnv_carriers$eid %in% females$eid, "sex"] <- "F"
 cnv_carriers$DUP <- 0
+cnv_carriers[cnv_carriers$eid %in% cnvs_16p11[which(cnvs_16p11$Copy_Number < 2), "Sample_Name"], "DUP"] <- NA
 cnv_carriers[cnv_carriers$eid %in% cnvs_16p11[which(cnvs_16p11$Copy_Number > 2), "Sample_Name"], "DUP"] <- 1
 cnv_carriers$DEL <- 0
+cnv_carriers[cnv_carriers$eid %in% cnvs_16p11[which(cnvs_16p11$Copy_Number > 2), "Sample_Name"], "DEL"] <- NA
 cnv_carriers[cnv_carriers$eid %in% cnvs_16p11[which(cnvs_16p11$Copy_Number < 2), "Sample_Name"], "DEL"] <- 1
 cnv_carriers$MIRROR <- 0
 cnv_carriers[which(cnv_carriers$DUP == 1), "MIRROR"] <- 1
@@ -71,8 +73,10 @@ cnv_carriers_HC <- all
 cnv_carriers_HC[cnv_carriers_HC$eid %in% males$eid, "sex"] <- "M"
 cnv_carriers_HC[cnv_carriers_HC$eid %in% females$eid, "sex"] <- "F"
 cnv_carriers_HC$DUP <- 0
+cnv_carriers_HC[cnv_carriers_HC$eid %in% cnvs_16p11_HC[which(cnvs_16p11_HC$Copy_Number < 2), "Sample_Name"], "DUP"] <- NA
 cnv_carriers_HC[cnv_carriers_HC$eid %in% cnvs_16p11_HC[which(cnvs_16p11_HC$Copy_Number > 2), "Sample_Name"], "DUP"] <- 1
 cnv_carriers_HC$DEL <- 0
+cnv_carriers_HC[cnv_carriers_HC$eid %in% cnvs_16p11_HC[which(cnvs_16p11_HC$Copy_Number > 2), "Sample_Name"], "DEL"] <- NA
 cnv_carriers_HC[cnv_carriers_HC$eid %in% cnvs_16p11_HC[which(cnvs_16p11_HC$Copy_Number < 2), "Sample_Name"], "DEL"] <- 1
 cnv_carriers_HC$MIRROR <- 0
 cnv_carriers_HC[which(cnv_carriers_HC$DUP == 1), "MIRROR"] <- 1

@@ -88,5 +88,9 @@ cnv_carriers_HC[which(cnv_carriers_HC$DUP == 1 | cnv_carriers_HC$DEL == 1), "U_S
 #################################################
 ### Save ########################################
 
+# CNV carriers profiles
 fwrite(cnv_carriers, "/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/02_CNV_carriers/data/final/16p11.2_CNV_profile.txt", row.names = F, col.names = T, quote = F, sep = "\t")
 fwrite(cnv_carriers_HC, "/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/02_CNV_carriers/data/final/16p11.2_CNV_profile_HC.txt", row.names = F, col.names = T, quote = F, sep = "\t")
+
+# CNV carriers coordinates
+fwrite(cnvs_16p11, "/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/02_CNV_carriers/data/final/16p11.2_CNV_coordinates.txt", row.names = F, col.names = T, quote = F, sep = "\t")

@@ -50,10 +50,10 @@ for (sex in 1:3) {
 	df <- data[[sex]]
 
 	# Loop over models
-	for (m in c("DUP", "DEL", "MIRROR", "U_SHAPE")) {
+	for (m in c("DUP", "DEL")) { # Other options: "MIRROR", "U_SHAPE"
 
 		# Loop over phenotypes
-		for (p in c("monocyte_count", "lymphocyte_count", "WBC_count", "eosinophil_count", "neutrophil_count")) {
+		for (p in c("monocyte_count", "lymphocyte_count", "WBC_count", "eosinophil_count", "neutrophil_count", "basophil_count")) {
 
 			# Fit the linear regression		
 			fit <- lm(df[, p] ~ df[, m], na.action = na.exclude)
@@ -74,7 +74,7 @@ for (sex in 1:3) {
 }
 
 print(paste0("Nominally significant associations: ", nrow(lm_results[which(lm_results$P <= 0.05), ])))
-print(paste0("Significant associations (corrected for number of phenotypes): ", nrow(lm_results[which(lm_results$P <= 0.05/10), ])))
+print(paste0("Significant associations (corrected for multiple testing: 1 (All) x 2 (models) x 6 (phenotypes)): ", nrow(lm_results[which(lm_results$P <= 0.05/10), ])))
 
 
 #################################################
@@ -87,10 +87,10 @@ sex_differences <- data.frame()
 i <- 1
 
 # Loop over models
-for (m in c("DUP", "DEL", "MIRROR", "U_SHAPE")) {
+for (m in c("DUP", "DEL")) {	# Other options: "MIRROR", "U_SHAPE"
 
 	# Loop over phenotypes
-	for (p in c("monocyte_count", "lymphocyte_count", "WBC_count", "eosinophil_count", "neutrophil_count")) {
+	for (p in c("monocyte_count", "lymphocyte_count", "WBC_count", "eosinophil_count", "neutrophil_count", "basophil_count")) { 
 
 		# Check if there is a trend towards a significant effect in the sex combined analysis; if so, test for significant difference across sexes
 		if (lm_results[which(lm_results$SEX == "All" & lm_results$MODEL == m & lm_results$PHENO == p), "P"] <= 0.5) {

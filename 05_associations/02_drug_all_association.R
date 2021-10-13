@@ -13,7 +13,7 @@ library(dplyr)
 geno <- as.data.frame(fread("/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/02_CNV_carriers/data/final/16p11.2_CNV_profile_HC.txt", select = c(1,4)))
 
 # Phenotypes INT and corrected by sex; File is generated from 04_phenotypes/01_phenotype_extraction.R 
-pheno <- as.data.frame(fread("/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/04_phenotypes/data/final/INT_age_age2_batch_PCs/WBC_WB_INT_age_age2_sex_batch_PCs_All.txt", select = c(1,4,7)))
+pheno <- as.data.frame(fread("/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/04_phenotypes/data/final/INT_age_age2_batch_PCs/WBC_WB_INT_age_age2_sex_batch_PCs_All.txt", select = c(1,4,7,8)))
 
 # Drug covariates; File is generated from 03_covariates/02_drug_covariates.R
 drug <- as.data.frame(fread("/home/cauwerx/scratch/cauwerx/projects/COLLABORATION/Giuliana/16p11.2_wbc/03_covariates/data/final/drug_covariates.txt"))
@@ -49,7 +49,7 @@ lm_results <- data.frame()
 i <- 1
 
 # Loop over phenotypes
-for (p in c("lymphocyte_count", "neutrophil_count")) {
+for (p in c("lymphocyte_count", "neutrophil_count", "basophil_count")) {
 
 	# Correct residual phenotypes for ALL drugs at once
 	df <- data[, c(p, cat)]

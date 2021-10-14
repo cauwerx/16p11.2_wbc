@@ -32,7 +32,7 @@ ATC <- as.data.frame(fread("/home/cauwerx/scratch/cauwerx/projects/COLLABORATION
 # Combine genotype and phenotype data
 data <- left_join(geno, pheno, by = "eid")
 
-# Select relevant ATC categoories
+# Select relevant ATC categories
 cat <- gsub(".*\\(", "", gsub(")", "", cat$cat))
 
 # Add selected covariates to the data file
